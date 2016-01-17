@@ -4,7 +4,7 @@
 // #define ENABLE_JOB_OBJECTS // declarations and structures for CreateJobObjectW and NtQueryInformationProcess
 // #define NO_BPRINT_BUFFER              // omit declarations for the BprintBuffer class
 // #define NO_AUTO_GROWING_BPRINT_BUFFER // omit auto-growing code in the BprintBuffer class
-// #define NO_UTF8
+// #define NO_UTF8            // treat 8 bit chars as ascii and assume wide characters are only ascii codepoints
 
 // disable code checks that emit external refs to c-runtime functions
 #pragma strict_gs_check(off)
@@ -16,10 +16,9 @@
 #pragma comment(linker, "/defaultlib:kernel32.lib")
 
 #pragma comment(linker, "/subsystem:console")
-//  build this module with the following command.
-// cl /O1 /GS- appendmsg.cpp /link /subsystem:console kernel32.lib
-//   or
-// cl /O1 /GS- appendmsg.cpp /link /subsystem:windows /out:async_appendmsg.exe kernel32.lib
+
+//  build apps by #include'ing this header file in your tool.cpp and then compiling with:
+// cl /O1 /GS- [/Zi /Od] <tool>.cpp /link /subsystem:[console|windows] [/out:<tool>.exe] [/libpath:<win32libs>]
 
 // msvc PREDEFINED MACROS (as of vs2012)
 // _M_AMD64  target x64 instruction set

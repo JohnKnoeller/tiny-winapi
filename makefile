@@ -3,9 +3,11 @@ clopts=/O1 /GS- /nologo
 subsys=/subsystem:console
 # /entry:begin /nodefaultlib
 
+# path to x86 VS110 compiler and system .lib files like kernel32.lib
 cc32=D:\vs110\VC\BIN\cl.exe
 win32libs=C:\PROGRA~2\WI3CF2~1\8.0\Lib\win8\um\x86
 
+# path to x64 VS110 compiler and system .lib files like kernel32.lib
 cc64=D:\vs110\VC\BIN\amd64\cl.exe
 win64libs=C:\PROGRA~2\WI3CF2~1\8.0\Lib\win8\um\x64
 
