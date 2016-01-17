@@ -1,2 +1,7 @@
 *.obj
 *.lib
+*.pdb
+*.suo
+*.sln
+*.map
+tmp/
